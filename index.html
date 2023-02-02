@@ -5,18 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" 
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" 
+        crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1 id="hello">안녕하세요</h1>
-    <h1 id="hi">JS 초보에요</h1>
+    <!-- <h1 id="hello">안녕하세요</h1>
+    <h1 id="hi">JS 초보에요</h1> -->
+
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <p class="hello">안녕</p>
+    <button id="test-btn">버튼</button>
 
     <script>
-        document.getElementById('hello').innerHTML = '안녕';
-        document.getElementById('hello').style.color = 'red';
-        document.getElementById('hello').style.fontSize = '16px'
+        // 이벤트 리스너도 짧아짐
+        // document.querySelector('#test-btn').addEventListener('click', function() {})
+        $('#test-btn').on('click', function() {
+            $('.hello').slideUp();
+        })
 
-        document.getElementById('hi').innerHTML = 'JS 고수에요';
-        document.getElementById('hi').style.color = 'green';
+        // 모든 태그의 문자를 바꿀 때 쌩JS는 3줄을 써야하지만 jQuery는 한줄이면 끝
+        // document.querySelectorAll('.hello')[0].innerHTML = '바보';
+        // document.querySelectorAll('.hello')[1].innerHTML = '바보';
+        // document.querySelectorAll('.hello')[2].innerHTML = '바보';
+        // $('.hello').html('바보');
+
+        // jQuery를 사용하면 코드가 반으로 준다
+        // document.querySelector('.hello').innerHTML = '바보';
+        // $('.hello').html('바보');
+        // $('.hello').css('color', 'red')
+
+        // document.getElementById('hello').innerHTML = '안녕';
+        // document.getElementById('hello').style.color = 'red';
+        // document.getElementById('hello').style.fontSize = '16px'
+
+        // document.getElementById('hi').innerHTML = 'JS 고수에요';
+        // document.getElementById('hi').style.color = 'green';
     </script>
+
 </body>
 </html>
