@@ -34,10 +34,14 @@
     <button onclick="passwordAlert('block')">버튼2</button> -->
 
     <script>
-        document.getElementsByClassName('navbar-toggler')[0]
-        .addEventListener('click', function() {
-            document.getElementsByClassName('list-group')[0].classList.toggle('show')
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            document.querySelector('.list-group').classList.toggle('show')
         })
+
+        // document.getElementsByClassName('navbar-toggler')[0]
+        // .addEventListener('click', function() {
+        //     document.getElementsByClassName('list-group')[0].classList.toggle('show')
+        // })
 
         // document.getElementById('close').addEventListener('click', function() {
         //     document.getElementById('alert').style.display = 'none';
