@@ -32,7 +32,8 @@
 
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-          <span class="navbar-brand">Navbar</span>
+          <span class="navbar-brand">JSShop</span>
+          <span class="badge bg-dark ms-auto mx-3">Dark 🔄</span>
           <button class="navbar-toggler" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -53,6 +54,24 @@
     </div>
 
     <script>
+        // badge 클릭횟수가 홀수면 내부 글자를 Light로 변경
+        // badge 클릭횟수가 짝수면 내부 글자를 Dark로 변경
+        
+        var count = 0;
+
+        $('.badge').on('click', function() {
+            count++;
+            if (count % 2 == 0 ) {
+                $('.badge').html('Dark 🔄')
+            } else {
+                $('.badge').html('Light 🔄')
+            }
+            console.log(count);
+        })
+
+
+
+
         // 전송버튼 눌렀을 때(이벤트 리스너)
         // input에 입력한 값이 공백이면 알림창 띄우기(if문)
         // $('form').on('submit', function(){}) 도 가능
