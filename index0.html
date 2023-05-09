@@ -53,10 +53,42 @@
         <button id="login" class="btn btn-danger">로그인</button>
     </div>
 
+    <div class="alert alert-danger">
+        <span id="num">5</span>초 이내 구매시 사은품 증정!
+    </div>
+
     <script>
+        // 5초 후 alert <div> 숨기기
+        // setTimeout(function() {
+        //     $('.alert').hide();
+        // }, 5000)
+
+        // X초마다 코드를 실행하려면
+        // setInterval(function() {
+        //     console.log('안녕')
+        // }, 1000)
+
+        // 콜백함수자리엔 만들어둔 함수를 넣을 수 있다. 
+        // setTimeout(함수, 1000)
+
+        // function 함수() {
+        //     console.log('안녕')
+        // }
+
+        // 5초에서 1초씩 줄어들다가 0초 후 <div>없애기
+        var counter = 5;
+
+        var timer = setInterval(function(){
+            counter -= 1;
+            if (counter >= 0){
+                document.querySelector('#num').innerHTML = counter;
+            } else if (counter < 0) {
+                $('.alert').hide();
+            }
+        }, 1000);
+
         // badge 클릭횟수가 홀수면 내부 글자를 Light로 변경
         // badge 클릭횟수가 짝수면 내부 글자를 Dark로 변경
-        
         var count = 0;
 
         $('.badge').on('click', function() {
@@ -70,20 +102,26 @@
         })
 
 
-
-
         // 전송버튼 눌렀을 때(이벤트 리스너)
         // input에 입력한 값이 공백이면 알림창 띄우기(if문)
         // $('form').on('submit', function(){}) 도 가능
-        $('#send').on('click', function(e) {
-            if( document.getElementById('email').value == '' || document.getElementById('password').value == '' ) {
+        $('form').on('submit', function(e) {
+
+            var 아이디 = document.getElementById('email').value;
+            var 패스워드 = document.getElementById('password').value;
+
+            if( 아이디 == '' || 패스워드 == '' ) {
                 alert('아이디/패스워드를 입력하세요!')
                 e.preventDefault();
-            } else if (document.getElementById('password').value.length < 6 ) {
+            } else if (!/\S+@\S+\.\S+/.test(아이디) ){
+                alert('이메일형식아님')
+                e.preventDefault();
+            } else if (패스워드.length < 6 ) {
                 alert('비밀번호는 6자리 이상입니다.')
                 e.preventDefault();
-            } else {
-                console.log('안녕2')
+            } else if (!/[A-Z]/.test(패스워드)) {
+                alert('대문자1개 이상 포함해주세요')
+                e.preventDefault();
             }
         });
         
