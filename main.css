@@ -2,6 +2,17 @@ body {
     margin: 0;
 }
 
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar-brand{
+    font-size: 30px;
+    transition: all 1s;
+}
+
 .alert-box {
     background-color: skyblue;
     padding: 20px;
@@ -33,29 +44,29 @@ body {
     visibility: hidden;
     opacity: 0;
     transition: all 1s;
-  }
+}
 
-  .white-bg {
+.white-bg {
     background: white;
     border-radius: 5px;
     padding: 30px;
-  }
+}
 
-  .show-modal {
+.show-modal {
     visibility: visible;
     opacity: 1;
-  }
+}
 
-  .slide-container {
+.slide-container {
     width: 300vw;
     transition: all 1s;
-  }
-  
-  .slide-box {
+}
+
+.slide-box {
     width: 100vw;
     float: left;
-  }
+}
 
-  .slide-box img {
+.slide-box img {
     width: 100%;
-  }
+}

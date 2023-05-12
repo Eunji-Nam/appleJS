@@ -53,6 +53,39 @@
         <button id="login" class="btn btn-danger">로그인</button>
     </div>
 
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+        Quae voluptas voluptatum minus praesentium fugit debitis at, 
+        laborum ipsa itaque placeat sit, excepturi eius. 
+        Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
+    </div>
+
+    <script>
+        // 문제 1. 스크롤바 100px 내리면 로고 폰트사이즈 작게 만들기
+        window.addEventListener('scroll', function() {
+            var 스크롤 = window.scrollY
+            if (스크롤 > 100) {
+                $('.navbar-brand').css('font-size', '20px')
+            } else {
+                $('.navbar-brand').css('font-size', '30px')
+            }
+        })
+
+        // 문제 2. 박스 끝까지 스크롤시 알림띄우기
+        // div의 스크롤바 내린 양 + 100(div의 height) == div의 실제높이 
+        $('.lorem').on('scroll', function() {
+            var 스크롤양 = document.querySelector('.lorem').scrollTop;
+            var 실제높이 = document.querySelector('.lorem').scrollHeight;
+            var 높이 = document.querySelector('.lorem').clientHeight; // 눈에 보이는 div높이
+
+            if(스크롤양 + 높이 >= 실제높이) {
+                alert('다 읽음!!')
+            }
+            console.log(스크롤양, 실제높이, 높이);
+        })
+
+    </script>
+
     <div style="overflow: hidden">
         <div class="slide-container">
             <div class="slide-box">
@@ -78,14 +111,25 @@
         <span id="num">5</span>초 이내 구매시 사은품 증정!
     </div>
 
+    <div style="height: 1000px"></div>
+
     <script>
-        function vat(a) {
-            return a * 0.1
-        }
 
-        console.log(vat(50000))
+        // window.addEventListener('scroll', function() {
+        //     // console.log(window.scrollY);
+        //     window.scrollBy(0, 100);
+        // })
 
+        // $(window).on('scroll', function() {
+        //     console.log($(window).scrollTop());
+        // })
 
+        // 함수 return문법
+        // function vat(a) {
+        //     return a * 0.1
+        // }
+
+        // console.log(vat(50000))
 
         // 캐러셀
         var 지금사진 = 0
