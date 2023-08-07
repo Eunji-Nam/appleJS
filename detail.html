@@ -49,6 +49,9 @@
         .show {
           display: block;
         }
+        .form-hide {
+          display: none;
+        }
       </style>
 
       <div class="container mt-3">
@@ -57,6 +60,79 @@
           <span class="car-price">가격</span>
         </div>
       </div>
+
+      <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2">
+          <option>모자</option>
+          <option>셔츠</option>
+          <option>바지</option>
+        </select>
+
+        <select class="form-select mt-2 form-hide">
+          <option>95</option>
+          <option>100</option>
+          <option>105</option>
+        </select>
+      </form>
+
+      <!-- <div id="test">
+        <h4>반가워</h4>
+      </div> -->
+
+      <script>
+        // 반복문 사용
+        var pants = [28, 30, 32, 34]
+
+        $('.form-select').eq(0).on('input', function(e) {
+          if(this.value == '셔츠') {
+            $('.form-select').eq(1).removeClass('form-hide');
+            const 템플릿  = '<option>95</option><option>100</option>';
+            $('.form-select').eq(1).html(템플릿);
+          } else if(this.value == '바지') {
+            $('.form-select').eq(1).removeClass('form-hide');
+            $('.form-select').eq(1).html('');
+            // for(var i = 0; i < pants.length; i++) {}
+            pants.forEach(function(i) {
+              $('.form-select').eq(1).append(`<option>${i}</option>`)
+            })
+          } else {
+            $('.form-select').eq(1).addClass('form-hide')
+          }
+        })
+
+        // html 추가
+        // const 템플릿 = '<p>안녕</p>'
+        // html이 '<h4>반가워</h4>' 밑에 추가됨
+        // document.querySelector('#test').insertAdjacentHTML('beforeend', 템플릿);
+        // $('#test').append(템플릿);
+
+        // html을 추가가 아닌 변경을 하고 싶다면 
+        // document.querySelector('#test').innerHTML = 템플릿;
+        // $('#test').html(템플릿);
+
+        // const a = document.createElement('p')
+        // a.innerHTML = '안녕'
+        // document.querySelector('#test').appendChild(a)
+
+        // $('.form-select').eq(0).on('input', function(e) {
+        //   if(this.value == '셔츠') {
+        //     $('.form-select').eq(1).removeClass('form-hide');
+        //     const 템플릿  = '<option>95</option><option>100</option>';
+        //     $('.form-select').eq(1).html(템플릿);
+        //   } else if(this.value == '바지') {
+        //     $('.form-select').eq(1).removeClass('form-hide');
+        //     const 템플릿  = '<option>28</option><option>30</option>';
+        //     // $('.form-select').eq(1).html(템플릿);
+        //     // or 
+        //     $('.form-select').eq(1).html('');
+        //     $('.form-select').eq(1).append(템플릿);
+        //   } else {
+        //     $('.form-select').eq(1).addClass('form-hide')
+        //   }
+        // })
+
+      </script>
 
       <script>
 
